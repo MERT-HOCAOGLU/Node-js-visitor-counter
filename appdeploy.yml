@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: prod
+spec:
+  type: LoadBalancer
+
+  selector:
+    app: vistor
+  ports:
+  - port: 80
+    targetPort: 3000
+
+    protocol: TCP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deploy
+  namespace: prod 
+spec: 
+  selector:
+    matchLabels:
+      app: vistor
+  template:
+    metadata:
+      labels:
+        app: vistor
+    spec:
+      containers:
+      - name: web-container
+        image: merthocaoglu/vistor:latest
+        ports:
+        - containerPort: 3000
