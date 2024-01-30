@@ -15,7 +15,7 @@ pipeline {
         stage('Snyk Code Scan') {
             steps {
                 snykSecurity(
-                    snykInstallation: 'snyk@latest',
+                    snykInstallation: 'latest',
                     snykTokenId: 'snyk-api-toke',
                     failOnIssues: false,
                     monitorProjectOnBuild: false,
@@ -28,7 +28,7 @@ pipeline {
         stage('Snyk Container Scan') {
             steps {
                 snykSecurity(
-                    snykInstallation: 'snyk@latest',
+                    snykInstallation: 'latest',
                     snykTokenId: 'snyk-api-toke',
                     failOnIssues: false,
                     monitorProjectOnBuild: true,
