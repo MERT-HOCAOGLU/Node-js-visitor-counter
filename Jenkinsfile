@@ -43,6 +43,7 @@ pipeline {
                 sh "sed -i 's/latest/v${BUILD_NUMBER}/' appdeploy.yml "
                 sh "kubectl apply -f namespace.yml"
                 sh "kubectl apply -f appdeploy.yml"
+                sh "kubectl delete deploy kaniko-deployment -n jenkins"
             }
         }
     }
