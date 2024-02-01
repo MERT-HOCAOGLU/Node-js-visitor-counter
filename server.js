@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('MERT HOCAOGLU - 02185076074 - Merhaba Hocam -Tesekurlar ');
+    res.send('MERT HOCAOGLU - 02185076074 - Merhaba Hocam ');
 });
 
 // Endpoint to get the number of visitors
